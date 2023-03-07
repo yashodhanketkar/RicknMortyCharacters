@@ -6,6 +6,7 @@ import {
 } from "../../components/query";
 import { getNextUrl } from "../../common/regex";
 import { Link } from "react-router-dom";
+import BASE_URI from "../../common/pages";
 
 export const setStatus = (status: Character["status"]): string => {
   if (status === "Alive") return "text-green-600";
@@ -17,7 +18,7 @@ const CharactersDisplay = (): React.ReactElement => {
   const { data, isError, isLoading, refetch } = useQuery({
     queryKey: ["characters"],
     queryFn: (): Promise<Character[]> =>
-      fetch("https://rickandmortyapi.com/api/character")
+      fetch(`${BASE_URI}/characters/`)
         .then((res) => res.json())
         .then((data) => data.results),
     refetchOnWindowFocus: false,
@@ -26,8 +27,6 @@ const CharactersDisplay = (): React.ReactElement => {
   if (isLoading) return <QueryLoading />;
 
   if (isError || !data) return <QueryError />;
-
-  console.log(getNextUrl("https://rickandmortyapi.com/api/episode/11"));
 
   return (
     <>

@@ -7,6 +7,7 @@ import {
 } from "../../components/query";
 import { setStatus } from "./allCharacters";
 import { getNextUrl } from "../../common/regex";
+import BASE_URI from "../../common/pages";
 
 const CharacterDisplay = (): React.ReactElement => {
   const { id } = useParams();
@@ -19,9 +20,7 @@ const CharacterDisplay = (): React.ReactElement => {
   } = useQuery({
     queryKey: ["character"],
     queryFn: (): Promise<Character> =>
-      fetch(`https://rickandmortyapi.com/api/character/${id}`).then((res) =>
-        res.json()
-      ),
+      fetch(`${BASE_URI}/characters/${id}`).then((res) => res.json()),
     refetchOnWindowFocus: false,
   });
 

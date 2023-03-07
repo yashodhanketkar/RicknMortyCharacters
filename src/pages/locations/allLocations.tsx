@@ -1,5 +1,6 @@
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
+import BASE_URI from "../../common/pages";
 import { getNextUrl } from "../../common/regex";
 import {
   QueryError,
@@ -17,9 +18,10 @@ const LocationsDisplay = (): React.ReactElement => {
   const { data, refetch, isLoading, isError } = useQuery({
     queryKey: ["locations"],
     queryFn: (): Promise<Locations[]> =>
-      fetch("https://rickandmortyapi.com/api/location")
+      fetch(`${BASE_URI}/locations/`)
         .then((res) => res.json())
         .then((data) => data.results),
+    refetchOnWindowFocus: false,
   });
 
   if (isLoading) return <QueryLoading />;

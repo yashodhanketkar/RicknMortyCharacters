@@ -1,3 +1,5 @@
+const BASE_URI = "http://localhost:5000/api";
+
 export interface page {
   url: string;
   name: string;
@@ -17,3 +19,5 @@ export const pages: page[] = [
     name: "Locations",
   },
 ];
+
+export default BASE_URI;

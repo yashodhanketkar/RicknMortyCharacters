@@ -6,6 +6,7 @@ import {
   QueryLoading,
   RefetchButton,
 } from "../../components/query";
+import BASE_URI from "../../common/pages";
 
 const EpisodeDisplay = (): React.ReactElement => {
   const { id } = useParams();
@@ -19,9 +20,7 @@ const EpisodeDisplay = (): React.ReactElement => {
   } = useQuery({
     queryKey: ["episode"],
     queryFn: (): Promise<Episode> =>
-      fetch(`https://rickandmortyapi.com/api/episode/${id}`).then((res) =>
-        res.json()
-      ),
+      fetch(`${BASE_URI}/episodes/${id}`).then((res) => res.json()),
     refetchOnWindowFocus: false,
   });
 
