@@ -7,7 +7,7 @@ interface IProps {
   };
 }
 
-const LinkFactory = (props: IProps["link"]) => {
+const LinkFactory = (props: IProps["link"]): React.ReactElement => {
   const { url, name } = props;
 
   return (
