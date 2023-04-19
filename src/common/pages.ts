@@ -1,4 +1,4 @@
-const BASE_URI = "http://localhost:5000/api";
+const BASE_URI = "https://rickandmortyapi.com/api/";
 
 export interface page {
   url: string;

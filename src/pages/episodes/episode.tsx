@@ -20,7 +20,7 @@ const EpisodeDisplay = (): React.ReactElement => {
   } = useQuery({
     queryKey: ["episode"],
     queryFn: (): Promise<Episode> =>
-      fetch(`${BASE_URI}/episodes/${id}`).then((res) => res.json()),
+      fetch(`${BASE_URI}/episode/${id}`).then((res) => res.json()),
     refetchOnWindowFocus: false,
   });
 

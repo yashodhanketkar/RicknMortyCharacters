@@ -20,7 +20,7 @@ const LocationDisplay = (): React.ReactElement => {
   } = useQuery({
     queryKey: ["location"],
     queryFn: (): Promise<Locations> =>
-      fetch(`${BASE_URI}/locations/${id}`).then((res) => res.json()),
+      fetch(`${BASE_URI}/location/${id}`).then((res) => res.json()),
     refetchOnWindowFocus: false,
   });
 

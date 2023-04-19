@@ -12,7 +12,7 @@ const Episodes = (): React.ReactElement => {
   const { data, refetch, isError, isLoading } = useQuery({
     queryKey: ["episodes"],
     queryFn: (): Promise<Episode[]> =>
-      fetch(`${BASE_URI}/episodes/`)
+      fetch(`${BASE_URI}/episode/`)
         .then((res) => res.json())
         .then((data) => data.results),
     refetchOnWindowFocus: false,

@@ -20,7 +20,7 @@ const CharacterDisplay = (): React.ReactElement => {
   } = useQuery({
     queryKey: ["character"],
     queryFn: (): Promise<Character> =>
-      fetch(`${BASE_URI}/characters/${id}`).then((res) => res.json()),
+      fetch(`${BASE_URI}/character/${id}`).then((res) => res.json()),
     refetchOnWindowFocus: false,
   });
 
